@@ -78,7 +78,7 @@
       name: "MiniMingle: Hero Board Games",
       about: "Tic-Tac-Toe, Connect 4, Bingo, Dots &amp; Boxes and Memory Match with 13 superhero-style heroes, for ages 3 to adult. Already on the App Store; the Android version is in testing.",
       groupUrl: "",
-      optIn: "https://play.google.com/apps/testing/com.shruezee.minimingle",
+      optIn: "https://play.google.com/apps/internaltest/4701631983063563493", internal: true,
       storeUrl: "https://apps.apple.com/app/id6818020829" }
   ];
 
@@ -87,7 +87,10 @@
     const el = document.createElement("article");
     el.className = "card"; el.dataset.topics = a.topics.join(" ");
     let buttons;
-    if (a.groupUrl) {
+    if (a.internal) {
+      buttons = `<a class="btn primary" href="${a.optIn}">Open the test link</a>
+                 <p class="note">Invite-only for now: email us your Gmail address first so we can add you, then open the link on your Android phone.</p>`;
+    } else if (a.groupUrl) {
       buttons = `<a class="btn primary" href="${a.groupUrl}">1. Join the tester group</a>
                  <a class="btn" href="${a.optIn}">2. Open the test link</a>`;
     } else {
