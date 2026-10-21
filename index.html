@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shruezee Studio — independent iOS and Android app development by Shruthi Rama, Australia.">
+  <title>Shruezee Studio | iOS & Android App Development</title>
+  <style>
+    :root { --ink:#202938; --muted:#64748b; --accent:#3157c8; --line:#e5eaf1; --surface:#f7f9fc; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#fff; line-height:1.7; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .container { width:min(1060px,90%); margin:auto; }
+    header { border-bottom:1px solid var(--line); }
+    nav { min-height:72px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+    .brand { font-size:19px; font-weight:750; color:var(--ink); }
+    .nav-links { display:flex; gap:22px; flex-wrap:wrap; }
+    .nav-links a { color:var(--muted); font-size:14px; }
+    .hero { padding:94px 0 80px; }
+    .eyebrow { color:var(--accent); font-size:13px; text-transform:uppercase; letter-spacing:1.8px; font-weight:700; }
+    h1 { font-size:clamp(38px,6vw,60px); line-height:1.12; letter-spacing:-2px; max-width:800px; margin:18px 0; }
+    .intro { max-width:700px; color:var(--muted); font-size:18px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .button { display:inline-block; padding:11px 19px; border:1px solid var(--line); border-radius:8px; font-weight:650; font-size:14px; color:var(--ink); }
+    .button.primary { color:#fff; background:var(--accent); border-color:var(--accent); }
+    .button:hover { text-decoration:none; opacity:.9; }
+    section { padding:66px 0; border-top:1px solid var(--line); }
+    h2 { font-size:29px; letter-spacing:-.7px; margin:0 0 12px; }
+    .section-intro { color:var(--muted); max-width:720px; margin-bottom:30px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .card { padding:24px; border:1px solid var(--line); border-radius:13px; background:#fff; }
+    .card h3 { margin:0 0 8px; font-size:19px; }
+    .card p { color:var(--muted); margin:8px 0 14px; }
+    .tag { display:inline-block; padding:4px 9px; margin:3px 4px 3px 0; border-radius:5px; background:var(--surface); color:#475569; font-size:12px; }
+    .date { font-size:13px; color:var(--muted); }
+    .skills { display:flex; flex-wrap:wrap; gap:7px; }
+    .contact { background:var(--surface); border-radius:16px; padding:32px; }
+    footer { padding:25px 0; color:var(--muted); font-size:13px; border-top:1px solid var(--line); }
+    footer .container { display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+    @media (max-width:650px) { .hero{padding:65px 0;} .grid{grid-template-columns:1fr;} .nav-links{gap:12px;} section{padding:48px 0;} .contact{padding:23px;} }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">Shruezee Studio</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="border-top:0">
+      <div class="container">
+        <div class="eyebrow">iOS &amp; Android app development · Australia</div>
+        <h1>Mobile apps, built carefully and shipped reliably.</h1>
+        <p class="intro">
+          Shruezee Studio is an independent mobile development studio founded by
+          Shruthi Rama, a developer with more than a decade of experience building
+          and supporting mobile applications, including mobile banking at HSBC.
+          I design, build and release native iOS and Android apps for clients.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#contact">Start a project</a>
+          <a class="button" href="#work">See our work</a>
+          <a class="button" href="https://github.com/shruezee" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Services</h2>
+        <p class="section-intro">End-to-end mobile development, from first idea to the App Store and Google Play.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>Native iOS</h3>
+            <p>Swift, SwiftUI and UIKit apps, App Store submission and ongoing maintenance.</p>
+          </article>
+          <article class="card">
+            <h3>Native Android</h3>
+            <p>Kotlin and Jetpack Compose apps, Google Play release and updates.</p>
+          </article>
+          <article class="card">
+            <h3>App review &amp; improvement</h3>
+            <p>Code reviews, architecture clean-up, testing and accessibility improvements for existing apps.</p>
+          </article>
+          <article class="card">
+            <h3>Subscriptions &amp; release</h3>
+            <p>In-app subscriptions, store listings, privacy and compliance set-up, and release management.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <h2>Our work</h2>
+        <p class="section-intro">Apps designed and built by the studio.</p>
+        <div class="grid">
+          <article class="card">
+            <div class="date">iOS · Live on the App Store</div>
+            <h3>Ashtotra – Daily Prayers</h3>
+            <p>Read and chant 108 sacred names in six scripts on iPhone and iPad, with no ads or tracking.</p>
+            <a href="https://apps.apple.com/au/app/ashtotra-daily-pr/id1474584223" target="_blank" rel="noopener">View on the App Store ↗</a>
+          </article>
+          <article class="card">
+            <!-- TODO: update status/links for KindDose before publishing -->
+            <div class="date">iOS &amp; Android</div>
+            <h3>KindDose</h3>
+            <p>A caring medicine-reminder app with label scanning, voice entry, history and family profiles.</p>
+            <a href="https://github.com/shruezee" target="_blank" rel="noopener">GitHub ↗</a>
+          </article>
+          <article class="card">
+            <!-- TODO: add the MiniMingle Games App Store link once you have it -->
+            <div class="date">iOS · Kids' games</div>
+            <h3>MiniMingle Games</h3>
+            <p>Five classic games with cartoon heroes for kids aged 6–8. Works offline, with no data collection.</p>
+            <a href="https://github.com/shruezee/MiniMingle-Games" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </article>
+          <article class="card">
+            <div class="date">Open source</div>
+            <h3>More on GitHub</h3>
+            <p>Code samples and mobile projects.</p>
+            <a href="https://github.com/shruezee" target="_blank" rel="noopener">View GitHub ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2>Founder experience</h2>
+        <p class="section-intro">Shruthi Rama, founder and lead developer.</p>
+        <article class="card">
+          <div class="date">2020 – January 2026</div>
+          <h3>Mobile App Developer — HSBC</h3>
+          <p>Contributed to mobile banking application development and support across iOS and Android, working on account information, transaction details and account limits, with a focus on quality and secure customer experiences.</p>
+          <p>Collaborated with stakeholders and offshore teams, reviewed delivery practices and explored ways to improve developer productivity.</p>
+          <div>
+            <span class="tag">Mobile Banking</span><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Team Collaboration</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2>Technical skills</h2>
+        <div class="skills" style="margin-top:20px">
+          <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">UIKit</span><span class="tag">Objective-C</span><span class="tag">RxSwift</span>
+          <span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">Android SDK</span><span class="tag">React Native</span>
+          <span class="tag">MVVM</span><span class="tag">Clean Architecture</span><span class="tag">Modularisation</span><span class="tag">XCTest</span>
+          <span class="tag">Git</span><span class="tag">CI/CD</span><span class="tag">Azure</span><span class="tag">Accessibility</span><span class="tag">Code Reviews</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <h2>Let's work together</h2>
+          <p class="section-intro">Available for freelance iOS and Android projects. Tell me about your app and I'll reply within a couple of business days.</p>
+          <div class="actions">
+            <!-- TODO: replace with your full email address -->
+            <a class="button primary" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+            <!-- TODO: replace with your LinkedIn profile URL -->
+            <a class="button" href="YOUR_LINKEDIN_PROFILE_URL" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="button" href="https://github.com/shruezee" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year">2026</span> Shruezee Studio · Australia</span>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
