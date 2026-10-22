@@ -31,6 +31,9 @@
     .btn { display:block; text-align:center; padding:11px 16px; border-radius:9px; font-weight:650; font-size:14.5px; margin-top:8px; border:1px solid var(--accent); }
     .btn.primary { background:var(--accent); color:#fff; }
     .btn.off { opacity:.55; pointer-events:none; }
+    .join { display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap; border:1px solid var(--accent); background:#f3f6ff; border-radius:14px; padding:16px 20px; margin:22px 0 0; }
+    .join span { color:var(--muted); font-size:14.5px; }
+    .join .btn { margin:0; padding:11px 22px; }
     .hide { display:none !important; }
     .note { color:var(--muted); font-size:14px; margin-bottom:50px; }
     @media (max-width:700px) { .grid, .steps { grid-template-columns:1fr; } }
@@ -40,13 +43,15 @@
   <header><nav class="container"><a class="brand" href="index.html">Shruezee Studio</a><a href="index.html#work">Our work</a></nav></header>
   <main class="container">
     <h1>Help test our apps</h1>
-    <p class="intro">Pick the apps that interest you, join their tester group with your Gmail, then install from Google Play. It takes about a minute and you don't need to send us anything.</p>
+    <p class="intro">Join our tester group once with your Gmail, then choose only the apps you want to try. Not every app is for everyone, so skip any you don't relate to. It takes about a minute.</p>
 
     <div class="steps">
-      <div class="step"><b>1. Join the group</b>Use the Gmail that's on your Android phone.</div>
-      <div class="step"><b>2. Open the test link</b>Tap “Become a tester” on your phone.</div>
+      <div class="step"><b>1. Join the group (once)</b>Use the Gmail that's on your Android phone.</div>
+      <div class="step"><b>2. Choose your app(s)</b>Open the test link only for the apps you want.</div>
       <div class="step"><b>3. Install &amp; use it</b>Keep it installed for 14 days and tell us what you think.</div>
     </div>
+
+    <div class="join"><div><b>Step 1: Join the tester group</b><br><span>One group covers all our apps. Joining doesn't install anything.</span></div><a class="btn primary" id="joinBtn" href="#">Join the tester group</a></div>
 
     <div class="chips" role="group" aria-label="Choose your interest">
       <button class="chip" data-filter="all" aria-pressed="true">All apps</button>
@@ -61,24 +66,23 @@
   </main>
 
 <script>
-  // One entry per app. Fill in groupUrl once the Google Group exists and is set to "anyone can join".
-  // optIn is the Play closed-testing link. For apps not ready yet, leave groupUrl empty.
+  // One tester group for every app. People join once, then open the test link only for the apps they want.
+  const GROUP_URL = "https://groups.google.com/g/shruezee-studio-testers";
+  document.getElementById("joinBtn").href = GROUP_URL;
+
   const APPS = [
-    { topics: ["prayer"], tags: ["Android", "Daily prayers", "Meditation"],
+    { topics: ["prayer"], tags: ["Android", "Prayer &amp; devotion", "Hindu content"],
       name: "Ashtotra: Daily Prayers",
-      about: "Daily prayers, aarti, meditation and the 108 names, read in six scripts and read aloud. No ads, no accounts.",
-      groupUrl: "https://groups.google.com/g/daily-prayer-and-meditation-app-testers",
+      about: "Daily Hindu prayers, aarti, meditation and the 108 names, read in six scripts and read aloud. Religious content, so only pick this if it's relevant to you. No ads, no accounts.",
       optIn: "https://play.google.com/apps/testing/com.shruezee.ashtotra" },
-    { topics: ["health"], tags: ["Android", "Medicine reminders", "Carers & families"],
+    { topics: ["health"], tags: ["Android", "Medicine reminders", "Carers &amp; families"],
       name: "KindDose",
-      about: "A caring medicine-reminder app with label scanning, voice entry, history and family profiles. Made for carers and healthcare workers.",
-      groupUrl: "",
-      optIn: "https://play.google.com/apps/internaltest/4701020811708032262", internal: true },
-    { topics: ["games"], tags: ["Android", "iPhone &amp; iPad", "Family games", "All ages"],
+      about: "A caring medicine-reminder app with label scanning, voice entry, history and a calming breathing exercise. Made for carers and healthcare workers. No ads, no accounts.",
+      optIn: "https://play.google.com/apps/testing/com.shruezee.kinddose" },
+    { topics: ["games"], tags: ["Android", "iPhone &amp; iPad", "Family games", "Ages 6+"],
       name: "MiniMingle: Hero Board Games",
-      about: "Tic-Tac-Toe, Connect 4, Bingo, Dots &amp; Boxes and Memory Match with 13 superhero-style heroes, for ages 3 to adult. Already on the App Store; the Android version is in testing.",
-      groupUrl: "",
-      optIn: "https://play.google.com/apps/internaltest/4701631983063563493", internal: true,
+      about: "Tic-Tac-Toe, Connect 4, Bingo, Dots &amp; Boxes and Memory Match with 13 superhero-style heroes, for ages 6 to adult. Already on the App Store; the Android version is in testing.",
+      optIn: "https://play.google.com/apps/testing/com.shruezee.minimingle",
       storeUrl: "https://apps.apple.com/app/id6818020829" }
   ];
 
@@ -86,16 +90,7 @@
   APPS.forEach((a) => {
     const el = document.createElement("article");
     el.className = "card"; el.dataset.topics = a.topics.join(" ");
-    let buttons;
-    if (a.internal) {
-      buttons = `<a class="btn primary" href="${a.optIn}">Open the test link</a>
-                 <p class="note">Invite-only for now: email us your Gmail address first so we can add you, then open the link on your Android phone.</p>`;
-    } else if (a.groupUrl) {
-      buttons = `<a class="btn primary" href="${a.groupUrl}">1. Join the tester group</a>
-                 <a class="btn" href="${a.optIn}">2. Open the test link</a>`;
-    } else {
-      buttons = `<span class="btn off">Android testing opens soon</span>`;
-    }
+    let buttons = `<a class="btn primary" href="${a.optIn}">Test this app on Android</a>`;
     if (a.storeUrl) buttons += `<a class="btn" href="${a.storeUrl}">Get it on the App Store (iPhone)</a>`;
     el.innerHTML = `<div>${a.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
                     <h3>${a.name}</h3><p>${a.about}</p>${buttons}`;
